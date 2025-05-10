@@ -8,27 +8,11 @@
 		{
 			"name": "registerUser",
 			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "LoginUser",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "createActivity",
-			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \" assignment\",\r\n  \"description\": \"Django internship task by tomorrow\",\r\n  \"status\": \"pending\",\r\n  \"due_date\": \"2025-05-05T18:00:00Z\"\r\n}",
+					"raw": "// post\r\n\r\n{\r\n  \"name\": \"mohan\",\r\n  \"email\": \"mohan@gmail.com\",\r\n  \"phone\": \"9876543098\",\r\n  \"password\": \"mohan234\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -36,7 +20,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/task/s",
+					"raw": "http://127.0.0.1:8000/api/auth/register",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -47,8 +31,84 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"task",
-						"s"
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "// post\r\n{\r\n  \"email\": \"mohan@gmail.com\",\r\n  \"password\": \"mohan234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createActivity",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgxZWQyYzdkOWY5MGZiYjdmMWZhMjI0In0sImlhdCI6MTc0Njg1MDU3NCwiZXhwIjoxNzQ2ODY4NTc0fQ.mFoZeN7g6JruG0VwrD6SzR86QaSqHZNUg0NM2rEW6mE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"football Match\",\r\n    \"description\": \"footabll match nearn jp nagar\",\r\n    \"location\": \"jp nagar\",\r\n    \"datetime\": \"2025-05-10T15:00:00Z\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/activities/create",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"activities",
+						"create"
 					]
 				}
 			},
@@ -57,16 +117,69 @@
 		{
 			"name": "BookActivtiy",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgxZWQyYzdkOWY5MGZiYjdmMWZhMjI0In0sImlhdCI6MTc0Njg1MDU3NCwiZXhwIjoxNzQ2ODY4NTc0fQ.mFoZeN7g6JruG0VwrD6SzR86QaSqHZNUg0NM2rEW6mE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/activities/book/681ed3eed9f90fbb7f1fa229",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"activities",
+						"book",
+						"681ed3eed9f90fbb7f1fa229"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "myBooking",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjgxZWQyYzdkOWY5MGZiYjdmMWZhMjI0In0sImlhdCI6MTc0Njg1MDU3NCwiZXhwIjoxNzQ2ODY4NTc0fQ.mFoZeN7g6JruG0VwrD6SzR86QaSqHZNUg0NM2rEW6mE",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/activities/my-bookings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"activities",
+						"my-bookings"
+					]
+				}
 			},
 			"response": []
 		},
@@ -74,7 +187,23 @@
 			"name": "geListActivty",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/activities/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"activities",
+						""
+					]
+				}
 			},
 			"response": []
 		}
