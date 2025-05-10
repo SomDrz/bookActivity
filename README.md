@@ -1,5 +1,7 @@
 
-Tecnology i used :
+Tecnology Used:
+
+
 
 Backend: Node.js, Express.js
 
@@ -13,6 +15,8 @@ Password Hashing: bcrypt
 
 Testing Tool: Postman
  
+
+
  
  1 Installation 
  
@@ -28,34 +32,37 @@ Testing Tool: Postman
       
       JWT_SECRET =your_jwt_secret
 
- 3 run surver 
+ 3 run server 
 
       npm start or nodemon
 
-4 test apis using postman :
+4 test APIS using postman :
 
    import json file in your postman to check apis or use below demo jsons
 
-   authentication apis :
+  
 
    1 for register user (post apis):  http://127.0.0.1:8000/api/auth/register  
+
+   
+          {
+             "name": "mohan",
+            "email": "mohan@gmail.com",
+             "phone": "9876543098",
+             "password": "mohan234"
+           }
    
        
-  {
-  "name": "mohan",
-  "email": "mohan@gmail.com",
-  "phone": "9876543098",
-  "password": "mohan234"
-  }
+ 
 
 
-2  alogin user (post apis): http://127.0.0.1:8000/api/auth/login
+2  login user (post apis): http://127.0.0.1:8000/api/auth/login
 
  
-  {
-  "email": "mohan@gmail.com",
-  "password": "mohan234"
-   }
+          {
+        "email": "mohan@gmail.com",
+            "password": "mohan234"
+           }
 
       
 
@@ -63,17 +70,22 @@ Testing Tool: Postman
 
    
         
-   {
-    "title": "football Match",
-    "description": "footabll match nearn jp nagar",
-    "location": "jp nagar",
-    "datetime": "2025-05-10T15:00:00Z"
-  }
+            {
+          "title": "football Match",
+          "description": "footabll match nearn jp nagar",
+          "location": "jp nagar",
+             "datetime": "2025-05-10T15:00:00Z"
+      }
+        
 
 
-  2 book API (post)   http://127.0.0.1:8000/api/activities/book/:id
+  2 book API (post)  : http://127.0.0.1:8000/api/activities/book/:id
+
+  
 
   3 get my booking(get) : http://127.0.0.1:8000/api/activities/my-bookings
+
+  
 
   4 get list of activity : http://127.0.0.1:8000/api/activities/
 
